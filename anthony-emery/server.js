@@ -29,7 +29,7 @@ app.use(express.static('./public'));
 // REVIEW: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js, if any, is interacting with this particular piece of `server.js`? What part of CRUD, if any, is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // This corresponds to 2.It doesnt correspond with any methods of article.js. This piece of code doesnt manage any part of CRUD
   response.sendFile('new.html', {root: './public'});
 });
 
@@ -37,7 +37,7 @@ app.get('/new', (request, response) => {
 // REVIEW: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // This code corresponds to 3. It corresponds with the fetchAll method of article.js. This piece of code manages the READ part of CRUD. 
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
@@ -49,7 +49,7 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // This code corresponds to 4. It corresponds with the insertRecord method of article.js. This piece of code manages the Create part of CRUD. 
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
